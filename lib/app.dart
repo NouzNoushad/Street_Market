@@ -1,13 +1,19 @@
 import 'package:ecom_clean_architecture/config/routes/route_constant.dart';
 import 'package:ecom_clean_architecture/config/routes/routes.dart';
 import 'package:ecom_clean_architecture/config/theme/theme.dart';
-import 'package:ecom_clean_architecture/domain/usecases/get_products_usecase.dart';
-import 'package:ecom_clean_architecture/presentation/bloc/bottom_nav/bottom_nav_cubit.dart';
-import 'package:ecom_clean_architecture/presentation/bloc/products_bloc/products_bloc.dart';
+import 'package:ecom_clean_architecture/features/carts/domain/usecases/add_cart_usecase.dart';
+import 'package:ecom_clean_architecture/features/carts/domain/usecases/close_cart_usecase.dart';
+import 'package:ecom_clean_architecture/features/carts/domain/usecases/delete_cart_usecase.dart';
+import 'package:ecom_clean_architecture/features/carts/domain/usecases/get_carts_usecase.dart';
+import 'package:ecom_clean_architecture/features/carts/presentation/bloc/carts_bloc/carts_bloc.dart';
+import 'package:ecom_clean_architecture/features/products/domain/usecases/get_products_usecase.dart';
 import 'package:ecom_clean_architecture/service_locator/service_locator.dart'
     as di;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'features/products/presentation/bloc/bottom_nav/bottom_nav_cubit.dart';
+import 'features/products/presentation/bloc/products_bloc/products_bloc.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -22,6 +28,14 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => BottomNavCubit(),
+        ),
+        BlocProvider(
+          create: (context) => CartsBloc(
+            getCartsUseCase: di.sl<GetCartsUseCase>(),
+            addToCartUseCase: di.sl<AddToCartUseCase>(),
+            deleteCartUseCase: di.sl<DeleteCartUseCase>(),
+            closeCartUseCase: di.sl<CloseCartUseCase>()
+          ),
         ),
       ],
       child: MaterialApp(

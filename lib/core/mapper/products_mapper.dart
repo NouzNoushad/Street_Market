@@ -1,7 +1,7 @@
 import 'package:ecom_clean_architecture/core/mapper/mapper.dart';
-import 'package:ecom_clean_architecture/data/model/products_model.dart';
+import 'package:ecom_clean_architecture/features/products/data/model/products_model.dart';
 
-import '../../domain/entity/products_entity.dart';
+import '../../features/products/domain/entity/products_entity.dart';
 
 class ProductsMapper extends Mapper<ProductsEntity, ProductsModel> {
   @override

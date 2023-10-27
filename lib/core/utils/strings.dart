@@ -6,6 +6,8 @@ class AppStrings {
   static const String unexpectedError = "Unexpected Error";
 
   static const String appTitle = 'Street Market';
+  static const String databaseName = 'cartsDB.db';
+  static const String tableName = 'carts';
 }
 
 void logger(String msg, dynamic debug) {
