@@ -13,4 +13,7 @@ class ColorPicker {
   static const Color primaryColor2 = Color.fromRGBO(251, 247, 240, 1);
   static const Color primaryColor3 = Color.fromRGBO(205, 201, 195, 1);
   static const Color primaryColor4 = Color.fromRGBO(85, 85, 85, 1);
+
+  static const Color whiteColor = Colors.white;
+  static const Color blackColor = Colors.black;
 }

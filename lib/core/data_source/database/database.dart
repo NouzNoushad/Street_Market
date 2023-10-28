@@ -3,7 +3,7 @@ import 'package:ecom_clean_architecture/core/utils/strings.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-class StreetMarketDatabase extends DatabaseConsumer{
+class StreetMarketDatabase extends DatabaseConsumer {
   static Database? _database;
 
   @override
@@ -28,7 +28,7 @@ class StreetMarketDatabase extends DatabaseConsumer{
         title TEXT NOT NULL,
         price INTEGER NOT NULL,
         category TEXT NOT NULL,
-        count INTEGER NOT NULL,
+        count INTEGER NOT NULL
       )
       ''');
   }

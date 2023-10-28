@@ -1,11 +1,12 @@
 import 'package:ecom_clean_architecture/core/utils/colors.dart';
 import 'package:ecom_clean_architecture/core/utils/strings.dart';
-import 'package:ecom_clean_architecture/features/products/presentation/screens/street_market_home/components/category_chip.dart';
-import 'package:ecom_clean_architecture/features/products/presentation/screens/street_market_home/components/products_card.dart';
+import 'package:ecom_clean_architecture/core/widget/app_bar.dart';
+import 'package:ecom_clean_architecture/features/products/presentation/screens/components/category_chip.dart';
+import 'package:ecom_clean_architecture/core/widget/products_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/products_bloc/products_bloc.dart';
+import '../bloc/products_bloc/products_bloc.dart';
 
 class StreetMarketHomeScreen extends StatefulWidget {
   const StreetMarketHomeScreen({super.key});
@@ -25,13 +26,8 @@ class _StreetMarketHomeScreenState extends State<StreetMarketHomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorPicker.primaryColor1,
-      appBar: AppBar(
-        backgroundColor: ColorPicker.primaryColor4,
-        automaticallyImplyLeading: false,
-        title: const Text(AppStrings.appTitle),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart))
-        ],
+      appBar: StreetMarketAppBar.appBar(
+        title: AppStrings.appTitle,
       ),
       body: BlocBuilder<ProductsBloc, ProductsState>(
         builder: (context, state) {

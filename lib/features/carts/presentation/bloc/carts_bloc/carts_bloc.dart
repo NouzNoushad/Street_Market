@@ -43,7 +43,7 @@ class CartsBloc extends Bloc<CartsEvent, CartsState> {
 
   EventHandler<AddToCartEvent, CartsState> addToCart() => ((event, emit) async {
         try {
-          bool added = await _addToCartUseCase.call(event.cart);
+          bool added = await _addToCartUseCase.call(carts: event.cart);
           emit(AddToCartState(added));
         } catch (error) {
           emit(CartsErrorState(error.toString()));
@@ -53,8 +53,9 @@ class CartsBloc extends Bloc<CartsEvent, CartsState> {
   EventHandler<DeleteCartEvent, CartsState> deleteCart() =>
       ((event, emit) async {
         try {
-          bool removed = await _deleteCartUseCase.call(event.id);
-          emit(AddToCartState(removed));
+          bool removed = await _deleteCartUseCase.call(id: event.id);
+          add(const CartsLoadedEvent());
+          emit(DeleteCartState(removed));
         } catch (error) {
           emit(CartsErrorState(error.toString()));
         }

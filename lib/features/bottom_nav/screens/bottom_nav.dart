@@ -1,9 +1,11 @@
 import 'package:ecom_clean_architecture/core/utils/colors.dart';
-import 'package:ecom_clean_architecture/features/products/presentation/screens/street_market_home/street_market_home.dart';
+import 'package:ecom_clean_architecture/features/carts/presentation/screens/cart_screen.dart';
+import 'package:ecom_clean_architecture/features/categories/presentation/screens/categories.dart';
+import 'package:ecom_clean_architecture/features/products/presentation/screens/street_market_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/bottom_nav/bottom_nav_cubit.dart';
+import '../cubit/bottom_nav/bottom_nav_cubit.dart';
 
 class StreetMarketBottomNav extends StatefulWidget {
   const StreetMarketBottomNav({super.key});
@@ -20,13 +22,9 @@ class _StreetMarketBottomNavState extends State<StreetMarketBottomNav> {
       case 0:
         return const StreetMarketHomeScreen();
       case 1:
-        return const Center(
-          child: Text('Category'),
-        );
+        return const StreetMarketCategoriesScreen();
       case 2:
-        return const Center(
-          child: Text('Cart'),
-        );
+        return const StreetMarketCartScreen();
     }
   }
 
